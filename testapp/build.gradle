@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    ext.kotlin_version = '1.1.1'
+    repositories {
+        google()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.google.gms:google-services:3.2.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        maven {
+            url "https://maven.google.com"
+        }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        maven {
+            url 'https://mymavenrepo.com/repo/ukAiuNSVkftQiB4kKUPH/'
+            name 'FastLogin Repo'
+        }
+        jcenter()
+
+    }
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.turkcell.dssgate.testapp"
+        minSdkVersion 18
+        targetSdkVersion 27
+        versionCode 4
+        versionName "1.0.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+}
+
+dependencies {
+    ext.supportLibraryVersion = '27.1.1'
+    ext.gmsVersion = '11.4.2'
+    compile 'com.android.support:multidex:1.0.3'
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    compile "com.android.support:design:$supportLibraryVersion"
+
+    testImplementation 'junit:junit:4.12'
+    compile ('com.turkcell.dssgate:dssgate-aar-beta:1.0.8.2')
+}
