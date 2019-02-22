@@ -259,3 +259,14 @@ A: Yes there are two environments for Fastlogin. One for prod, other for test. D
 
 A: Yes it is a real repository. Our need was a free public repo. This is the reason we are using it.
 
+
+# Changelog
+
+**v1.1.2**
+
+Google Analytics integration key changed.
+
+**v1.1.1**
+
+Unique key generator, DGUtil.getGADeviceID(context), added for optional Google Analytics integration.
+
