@@ -266,7 +266,7 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 Google Analytics integration key changed.
 
-**v1.1.1**
+**v1.1.1 - Deprecated **
 
 Unique key generator, DGUtil.getGADeviceID(context), added for optional Google Analytics integration.
 
