@@ -262,6 +262,10 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 # Changelog
 
+**v1.1.3**
+
+DGUtil.getGADeviceID(context) method renamed to FastLoginUtil.getGADeviceID(context).
+
 **v1.1.2**
 
 Google Analytics integration key changed.
