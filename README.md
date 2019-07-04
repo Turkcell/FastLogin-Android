@@ -265,9 +265,11 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 **v1.1.7**
 
 Android 6 webview keypad input bug fixed.
+
 **v1.1.6**
 
 New error detail added for 'no response from server' scenarios.
+
 **v1.1.5**
 
 New error detail added for 'server down' scenarios.
