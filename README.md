@@ -273,6 +273,7 @@ New error detail added for 'no response from server' scenarios.
 **v1.1.5**
 
 New error detail added for 'server down' scenarios.
+
 **v1.1.3**
 
 DGUtil.getGADeviceID(context) method renamed to FastLoginUtil.getGADeviceID(context).
