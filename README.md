@@ -262,6 +262,10 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 # Changelog
 
+**v1.1.8**
+
+Language related npe bug fixed.
+
 **v1.1.7**
 
 Android 6 webview keypad input bug fixed.
