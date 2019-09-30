@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.turkcell.dssgate.DGLoginCoordinator;
-import com.turkcell.dssgate.DGTheme;
 import com.turkcell.dssgate.client.model.DGLanguage;
 import com.turkcell.dssgate.model.DGEnv;
 import com.turkcell.dssgate.model.exception.DGException;
@@ -36,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
     String demoFlowType;
     DGLanguage language;
     private Button buttonLogin;
-    private Button buttonMCLogin;
-    private Button buttonRegister;
-    private Button buttonAccountChange;
     private Button buttonWidgetLogin;
     private Button buttonLogOut;
     private Spinner spinner;
@@ -64,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
         spinnerEnv = findViewById(R.id.spinnerEnv);
         textViewResult = findViewById(R.id.textViewResult);
         buttonLogin = findViewById(R.id.button);
-        buttonMCLogin = findViewById(R.id.buttonMCLogin);
-        buttonRegister = findViewById(R.id.buttonRegister);
-        buttonAccountChange = findViewById(R.id.buttonAccountChange);
         buttonWidgetLogin = findViewById(R.id.buttonWidgetLogin);
         buttonLogOut = findViewById(R.id.buttonLogOut);
         appId = findViewById(R.id.appId);
@@ -86,30 +79,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setEnvironment(true);
                 openLoginSdkForStart();
-            }
-        });
-
-        buttonMCLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setEnvironment(true);
-                openLoginSdkForMCLogin();
-            }
-        });
-
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setEnvironment(true);
-                openLoginSdkForRegister();
-            }
-        });
-
-        buttonAccountChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setEnvironment(true);
-                openLoginSdkForAccounChange();
             }
         });
 
@@ -179,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.spinner_item);
         spinnerEnv.setAdapter(adapterEnv);
 
-        appId.setText("202");
+        appId.setText("49842");
     }
 
     private void setEnvironment(boolean setDemoFlow) {
@@ -193,19 +162,8 @@ public class MainActivity extends AppCompatActivity {
         language = DGLanguage.valueOf(spinnerLanguageItemList.get(spinnerLanguage.getSelectedItemPosition()));
     }
 
-    private void openLoginSdkForRegister() {
-        DGLoginCoordinator dg = new DGLoginCoordinator.Builder().theme(null).appId(getAppId()).environment(env).language(language).build();
-
-        try {
-            dg.startForRegister(this, demoFlowType);
-        } catch (DGException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void openLoginSdkForStart() {
-        DGTheme digitalGateTheme = getDigitalGateTheme();
-        DGLoginCoordinator dg = new DGLoginCoordinator.Builder().theme(digitalGateTheme).appId(getAppId()).environment(env).language(language).build();
+        DGLoginCoordinator dg = new DGLoginCoordinator.Builder().appId(getAppId()).environment(env).language(language).build();
 
         try {
             dg.startForLoginWithTransferToken(this, disableCellLogin.isChecked(), autoLoginOnly.isChecked(), disableAutoLogin.isChecked(), false, demoFlowType, getTransferToken());
@@ -214,29 +172,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void openLoginSdkForMCLogin() {
-        DGLoginCoordinator loginCoordinator = new DGLoginCoordinator.Builder().theme(getDigitalGateTheme()).appId(getAppId()).environment(env).language(language).build();
-
-        try {
-            loginCoordinator.startForMCLogin(this, demoFlowType);
-        } catch (DGException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private DGTheme getDigitalGateTheme() {
-        DGTheme dgTheme = new DGTheme.Builder().setPopUpBottomColor(android.R.color.black).setPopUpTopColor(R.color.dg_c_fedf32).setPopupTitleLabelColor(R.color.dg_c_1ca1e4).setPopupDescriptionTextColor(android.R.color.holo_red_dark).setRoundedFillButtonBackgroundColor(android.R.color.holo_green_dark).setRoundedFillButtonTextColor(android.R.color.black).setRoundedTransparentButtonBorderColor(android.R.color.black).setRoundedTransparentButtonTextColor(android.R.color.holo_red_light).setBackgroundColor(android.R.color.holo_green_light).setTitleLabelColor(android.R.color.holo_red_dark).setDescriptionTextColor(android.R.color.holo_orange_dark).setCheckBoxPassiveIcon(R.drawable.dg_checkbox_normal).setPositiveButtonBackgroundColor(android.R.color.darker_gray).setPositiveButtonTextColor(android.R.color.black).setRegisterIcon(R.drawable.dg_icon_bin).build();
-        return dgTheme;
-    }
-
     private void openLoginSdkForWidgetLogin() {
-        DGLoginCoordinator dg = new DGLoginCoordinator.Builder().theme(null).appId(getAppId()).environment(env).language(language).build();
+        DGLoginCoordinator dg = new DGLoginCoordinator.Builder().appId(getAppId()).environment(env).language(language).build();
 
         try {
             dg.startForWidgetLogin(getApplicationContext());
         } catch (DGException e) {
             e.printStackTrace();
         }
+
 
     }
 
@@ -260,30 +204,6 @@ public class MainActivity extends AppCompatActivity {
             transferToken = null;
         }
         return transferToken;
-    }
-
-    private void openLoginSdkForAccounChange() {
-
-
-        DGTheme dgTheme = new DGTheme.Builder()
-                .setBackgroundColor(android.R.color.holo_blue_light)
-                .setTitleLabelColor(android.R.color.holo_red_dark)
-                .setDescriptionTextColor(android.R.color.holo_orange_dark)
-                .setCheckBoxPassiveIcon(R.drawable.dg_checkbox_normal)
-                .setPositiveButtonBackgroundColor(android.R.color.darker_gray)
-                .setPositiveButtonTextColor(android.R.color.black)
-                .setRegionSelectIcon(R.drawable.dg_checkbox_active).build();
-
-
-
-
-        DGLoginCoordinator dg = new DGLoginCoordinator.Builder().theme(dgTheme).appId(getAppId()).environment(env).language(language).build();
-
-        try {
-            dg.startForSwitchAccount(this, demoFlowType);
-        } catch (DGException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

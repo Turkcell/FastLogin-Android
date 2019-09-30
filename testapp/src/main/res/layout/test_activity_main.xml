@@ -88,6 +88,7 @@
         android:text="LOGIN" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/buttonMCLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,6 +96,7 @@
         android:text="MC LOGIN" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,6 +104,7 @@
         android:text="REGISTER" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/buttonAccountChange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

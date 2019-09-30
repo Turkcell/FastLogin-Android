@@ -71,5 +71,5 @@ dependencies {
     compile "com.android.support:design:$supportLibraryVersion"
 
     testImplementation 'junit:junit:4.12'
-    compile ('com.turkcell.dssgate:dssgate-aar-beta:1.0.8.2')
+    compile ('com.turkcell.dssgate:dssgate-aar-beta:2.0.3')
 }
