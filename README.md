@@ -29,7 +29,7 @@ Adding FastLogin’s Android SDK Dependency:
 Add the compile dependency with the latest version of the FastLogin SDK in the build.gradle file:
 
 ```
-    compile ('com.turkcell.dssgate:dssgate-aar:1.+')
+    compile ('com.turkcell.dssgate:dssgate-aar-beta:1.+')
 ```
 
 ### 2.2 Setting the Required Permissions
@@ -43,10 +43,9 @@ The AndroidManifest.xml should include the following permissions:
 
 ## 3. SDK Initialization
 
-Initialization of the SDK is completed in two stages. In the first stage the DGLoginCoordinator is created by using Builder Pattern. When building  DGLoginCoordinator, appId is required where theme and language parameters are optional. In the second stage the call to one of the main flows(e.g. call startForLogin, startForSwitchAccount, startForRegister) is needed. 
+Initialization of the SDK is completed in two stages. In the first stage the DGLoginCoordinator is created by using Builder Pattern. When building  DGLoginCoordinator, appId is required where language is are optional. In the second stage the call to one of the main flows(e.g. call startForLogin) is needed. 
 
 Optional Parameters;
-* theme: default theme of the application exists. See Section 10.
 * language: default language is TR
 * environment: default environment is PROD
 
@@ -73,37 +72,9 @@ Having initialized the SDK, start login one of the main flows to call. It takes 
     }
 ```
 
-For getting result, see Section 10.
+For getting result, see Section 8.
 
-## 5. SDK Start Register
-
-Having initialized the SDK, start register one of the main flows to call. It runs without parameters;
-
-```Java
-    try {
-        dg.startForRegister(this);
-    } catch (DGException e) {
-        //application error handling, e.g. required appId
-    }
-```
-
-For getting result, see Section 10.
-
-## 6. SDK Switch Account
-
-Having initialized the SDK, switch account one of the main flows to call. It runs without parameters;
-
-```Java
-    try {
-        dg.startForSwitchAccount(this);
-    } catch (DGException e) {
-        //application error handling, e.g. required appId
-    }
-```
-
-For getting result, see Section 10.
-
-## 7. SDK START LOGIN WITH TRANSFER TOKEN
+## 5. SDK START LOGIN WITH TRANSFER TOKEN
 
 Having initialized the SDK, start login with transfer token one of the main flows to call. It takes three boolean parameters and one string parameter;
 
@@ -122,9 +93,9 @@ Having initialized the SDK, start login with transfer token one of the main flow
 
 ```
 
-For getting result, see Section 10.
+For getting result, see Section 8.
 
-## 8. SDK WIDGET LOGIN
+## 6. SDK WIDGET LOGIN
 
 Having initialized the SDK, widget login one of the main flows to call. It doesn’t take any parameters. However, it only works if there is an active rememberme login in the relative application.
 
@@ -140,7 +111,7 @@ Having initialized the SDK, widget login one of the main flows to call. It doesn
 
 For getting result, see Section 9.
 
-## 9. SDK WIDGET RESULT
+## 7. SDK WIDGET RESULT
 
 To get the result from SDK, a class needed that is extended from BroadcastReceiver and relative action must be registered. See below example code:
 
@@ -172,7 +143,7 @@ DGResultType.SUCCESS_NO_LOGIN | (ONLY FOR WIDGET) Login needed in the applicatio
 DGResultType.ERROR_APPLICATON | There is a system error in fastlogin | You can continue Non-Login or force user to login again
 DGResultType.ERROR_SESSION_LOST | Session lost during fastlogin processes. | You can continue Non-Login or force user to login by starting fastlogin again
 
-## 10. SDK Result
+## 8. SDK Result
 
 To get the result from SDK, onActivityResult method must be overridden in the application’s Activity or Fragment.
 
@@ -206,7 +177,7 @@ DGResultType.ERROR_APPLICATON | There is a system error in fastlogin | You can c
 DGResultType.ERROR_SESSION_LOST | Session lost during fastlogin processes. | You can continue Non-Login or force user to login by starting fastlogin again
 
 
-## 11. SDK Logout
+## 9. SDK Logout
 To logout from the system, there is a static method to call. Re-initialization of DGLoginCoordinator is not needed. Add the following code in your Application:
 
 ```Java
@@ -215,37 +186,14 @@ To logout from the system, there is a static method to call. Re-initialization o
 
 For logout, there is no result. Having called the logout method is enough.
 
-## 12. SDK Style Configuration
-The configuration of the sdk can be achieved by creating DGTheme and passing DGTheme to DGLoginCoordinator. Builder pattern is used for creating the DGTheme. 
-
-Sample code for configuring the style:
-
-```Java
-    DGTheme dgTheme = new DGTheme.Builder()
-            .setBackgroundColor(android.R.color.holo_green_light)
-            .setTitleLabelColor(android.R.color.holo_red_dark)
-            .setDescriptionTextColor(android.R.color.holo_orange_dark)
-            .setCheckBoxPassiveIcon(R.drawable.dg_checkbox_normal)
-            .setPositiveButtonTextColor(android.R.color.black)
-            .build();
-
-    DGLoginCoordinator dg = new DGLoginCoordinator.Builder().theme(dgTheme).appId(your_app_id).build();
-```
-
-For detailed description of customizing styles see Fastlogin Android documentation.
-
-## 13. PROGUARD CONFIGURATION
+## 10. PROGUARD CONFIGURATION
 If you are using ProGuard in your project add the following lines to your configuration:
 
 ```
 -keep class com.turkcell.dssgate.client.** { *; }
 ```
 
-## 14. FAQ
-
-**Q: Do we need to set theme in the DGLoginCoordinator?**
-
-A: No you don’t. There is a default theme in Fastlogin, if you don’t need a special theme then you can continue with the default one by not setting or just setting null for theme method in DGLoginCoordinator.
+## 11. FAQ
 
 **Q: Is there a test Environment for Fastlogin?**
 
@@ -261,6 +209,10 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 
 # Changelog
+
+**v2.0.3**
+
+Replatforming
 
 **v1.1.8**
 
