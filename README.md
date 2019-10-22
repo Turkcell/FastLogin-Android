@@ -210,6 +210,14 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 # Changelog
 
+**v2.0.5**
+
+Landscape orientation supported.
+
+**v2.0.4**
+
+Force various hyperlink to be opened in out-of-app browser.
+
 **v2.0.3**
 
 Replatforming
