@@ -1,136 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@android:color/darker_gray"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp">
+    android:layout_height="match_parent">
 
-
-    <EditText
-        android:id="@+id/appId"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="App ID" />
-
-
-    <EditText
-        android:id="@+id/transferToken"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Transfer Token" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
-        <CheckBox
-            android:id="@+id/disableCellLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="disableCellLogin"
-            android:textSize="8sp" />
 
-        <CheckBox
-            android:id="@+id/autoLoginOnly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="autoLoginOnly"
-            android:textSize="8sp" />
+        <LinearLayout
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <CheckBox
-            android:id="@+id/disableAutoLogin"
-            android:layout_width="wrap_content"
+            <TextView
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version : "/>
+
+            <TextView
+                android:id="@+id/txtVersionNumber"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version Number"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/appId"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="disableAutoLogin"
-            android:textSize="8sp" />
+            android:hint="App ID" />
+
+
+        <EditText
+            android:id="@+id/transferToken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Transfer Token" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/disableCellLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="disableCellLogin"
+                android:textSize="8sp" />
+
+            <CheckBox
+                android:id="@+id/autoLoginOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="autoLoginOnly"
+                android:textSize="8sp" />
+
+            <CheckBox
+                android:id="@+id/disableAutoLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="disableAutoLogin"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3.5"
+                android:minHeight="48dp" />
+
+            <Spinner
+                android:id="@+id/spinnerLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:visibility="gone"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/edtLanguage"
+                android:textAlignment="center"
+                android:text="TR"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"  />
+
+            <Spinner
+                android:id="@+id/spinnerEnv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3.5"
+                android:minHeight="48dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="LOGIN" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/buttonMCLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="MC LOGIN" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="REGISTER" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/buttonAccountChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Account Change" />
+
+        <Button
+            android:id="@+id/buttonWidgetLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Widget Login" />
+
+        <Button
+            android:id="@+id/buttonLogOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="LogOut" />
+
+        <TextView
+            android:id="@+id/textViewResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/dg_c_white"
+            android:textSize="16sp" />
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="3.5"
-            android:minHeight="48dp" />
-
-        <Spinner
-            android:id="@+id/spinnerLanguage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="3"
-            android:minHeight="48dp" />
-        <Spinner
-            android:id="@+id/spinnerEnv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="3.5"
-            android:minHeight="48dp" />
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="LOGIN" />
-
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/buttonMCLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="MC LOGIN" />
-
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/buttonRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="REGISTER" />
-
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/buttonAccountChange"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Account Change" />
-
-    <Button
-        android:id="@+id/buttonWidgetLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Widget Login" />
-
-    <Button
-        android:id="@+id/buttonLogOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="LogOut" />
-
-    <TextView
-        android:id="@+id/textViewResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/dg_c_white"
-        android:textSize="16sp" />
-
-</LinearLayout>
+</ScrollView>

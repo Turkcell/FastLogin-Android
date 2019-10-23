@@ -33,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
     private final String NORMAL_FLOW = "NORMAL_FLOW";
     String demoFlowType;
-    DGLanguage language;
+    String language;
     private Button buttonLogin;
     private Button buttonWidgetLogin;
     private Button buttonLogOut;
     private Spinner spinner;
     private Spinner spinnerLanguage;
+    private EditText edtLanguage;
     private Spinner spinnerEnv;
     private TextView textViewResult;
     private List<String> spinnerItemList;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox autoLoginOnly;
     private CheckBox disableAutoLogin;
     private DGEnv env;
+    private TextView txtVersionNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.test_activity_main);
         spinner = findViewById(R.id.spinner);
         spinnerLanguage = findViewById(R.id.spinnerLanguage);
+        edtLanguage = findViewById(R.id.edtLanguage);
         spinnerEnv = findViewById(R.id.spinnerEnv);
         textViewResult = findViewById(R.id.textViewResult);
         buttonLogin = findViewById(R.id.button);
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         disableCellLogin = findViewById(R.id.disableCellLogin);
         autoLoginOnly = findViewById(R.id.autoLoginOnly);
         disableAutoLogin = findViewById(R.id.disableAutoLogin);
+        txtVersionNumber = findViewById(R.id.txtVersionNumber);
 
         int permissionSendMessage = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_PHONE_STATE);
@@ -134,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerEnvList = new ArrayList<>();
         spinnerEnvList.add(DGEnv.TEST.name());
+        spinnerEnvList.add(DGEnv.PRP.name());
         spinnerEnvList.add(DGEnv.PROD.name());
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerItemList);
@@ -149,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
         spinnerEnv.setAdapter(adapterEnv);
 
         appId.setText("49842");
+
+        txtVersionNumber.setText(BuildConfig.VERSION_NAME);
     }
 
     private void setEnvironment(boolean setDemoFlow) {
@@ -159,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         env = DGEnv.valueOf(spinnerEnvList.get(spinnerEnv.getSelectedItemPosition()));
-        language = DGLanguage.valueOf(spinnerLanguageItemList.get(spinnerLanguage.getSelectedItemPosition()));
+        //language = spinnerLanguageItemList.get(spinnerLanguage.getSelectedItemPosition());
+        language = edtLanguage.getText().toString();
     }
 
     private void openLoginSdkForStart() {
