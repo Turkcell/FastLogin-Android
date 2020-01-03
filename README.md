@@ -210,6 +210,10 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 # Changelog
 
+**v2.0.6**
+
+Remember Me function fixed.
+
 **v2.0.5**
 
 Landscape orientation supported.
