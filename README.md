@@ -210,7 +210,11 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 # Changelog
 
-**v2.0.6**
+**v2.0.8**
+
+Remember Me with GSM and E-Mail function fixed.
+
+**v2.0.6 - Deprecated**
 
 Remember Me function fixed.
 
