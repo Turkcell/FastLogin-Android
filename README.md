@@ -30,7 +30,7 @@ Add the compile dependency with the latest version of the FastLogin SDK in the b
 
 ```
     compile ('com.turkcell.dssgate:dssgate-aar:1.+')
-    implementation 'com.turkcell.dssgate:dssgate-client:1.0.2'
+    implementation 'com.turkcell.dssgate:dssgate-client:1.0.3'
 ```
 
 ### 2.2 Setting the Required Permissions
