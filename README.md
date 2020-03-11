@@ -29,8 +29,7 @@ Adding FastLogin’s Android SDK Dependency:
 Add the compile dependency with the latest version of the FastLogin SDK in the build.gradle file:
 
 ```
-    compile ('com.turkcell.dssgate:dssgate-aar:1.1.8')
-    implementation 'com.turkcell.dssgate:dssgate-client:1.0.3'
+    compile ('com.turkcell.dssgate:dssgate-aar:1.1.9')
 ```
 
 ### 2.2 Setting the Required Permissions
@@ -262,6 +261,10 @@ A: Yes it is a real repository. Our need was a free public repo. This is the rea
 
 
 # Changelog
+
+**v1.1.9**
+
+Dependencies are made transitive
 
 **v1.1.8**
 
