@@ -26,10 +26,10 @@ Adding FastLogin’s Android SDK Dependency:
     }
 ```
 
-Add the compile dependency with the latest version of the FastLogin SDK in the build.gradle file:
+Add the dependency with the latest version of the FastLogin SDK in the build.gradle file:
 
 ```
-    compile ('com.turkcell.dssgate:dssgate-aar:1.1.9')
+    implementation ('com.turkcell.dssgate:dssgate-aar:1.1.9')
 ```
 
 ### 2.2 Setting the Required Permissions
